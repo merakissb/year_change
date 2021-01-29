@@ -1,5 +1,21 @@
 <h1>ExcelFiles#index</h1>
-<p>Find me in app/views/excel_files/index.html.erb</p>
-<% @excel_files.each do |excel| %>
-  <p><%= excel.action_type %></p>
-<% end %>
+<table>
+  <thead>
+    <tr>
+      <th>Colegio</th>
+      <th>Rbd</th>
+      <th>file</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @excel_files.each do |excel| %>
+      <tr>
+        <td><%= excel.school %></td>
+        <td><%= excel.rbd %></td>
+        <td><%= link_to 'descargar', rails_blob_path(excel.file, disposition: "attachment") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'new', new_excel_file_path %>

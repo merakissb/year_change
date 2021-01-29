@@ -4,7 +4,7 @@ class CreateExcelFiles < ActiveRecord::Migration[6.0]
       t.string :action_type
       t.string :file_name
       t.references :user, null: false, foreign_key: true
-
+      
       t.timestamps
     end
   end
