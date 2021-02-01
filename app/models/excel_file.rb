@@ -4,5 +4,5 @@ class ExcelFile < ApplicationRecord
 
   validates :school, presence: true, length: { minimum: 2, maximum: 50 }
   validates :rbd, presence: true, length: { minimum: 2, maximum: 10 }
-  validates :file, attached: true, content_type: { in: 'application/xlsx', message: 'is not a xlsx' }, size: { less_than: 3.megabytes }
+  validates :file, attached: true, content_type: { in: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', message: 'is not excel file'}, size: { less_than: 3.megabytes }
 end

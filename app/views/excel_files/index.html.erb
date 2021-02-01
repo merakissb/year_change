@@ -1,21 +1,27 @@
-<h1>ExcelFiles#index</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Colegio</th>
-      <th>Rbd</th>
-      <th>file</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @excel_files.each do |excel| %>
-      <tr>
-        <td><%= excel.school %></td>
-        <td><%= excel.rbd %></td>
-        <td><%= link_to 'descargar', rails_blob_path(excel.file, disposition: "attachment") %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= link_to 'new', new_excel_file_path %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-10 mt-4">
+      <h1 class="row justify-content-center">ExcelFiles#index</h1>
+      <table class="table table-borderless table-sm">
+        <thead style="background-color: #e3f2fd;">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Colegio</th>
+            <th scope="col">Rbd</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @excel_files.each do |excel| %>
+            <tr>
+              <td><%= excel.id %></td>
+              <td><%= excel.school %></td>
+              <td><%= excel.rbd %></td>
+              <td><%= link_to 'descargar', rails_blob_path(excel.file, disposition: "attachment") %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

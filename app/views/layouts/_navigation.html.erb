@@ -1,0 +1,16 @@
+<% if user_signed_in? %>
+  <nav class="navbar navbar-expand-lg" style="background-color: #e3f2fd;">
+    <%= link_to 'Year-change', root_path, id: "logo", class: "navbar-brand font-weight-bold" %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <%= link_to 'new excel', new_excel_file_path, class: "btn btn-outline-primary" %> 
+        </li>
+      </ul>
+      <%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, class: "btn btn-outline-primary", data: {confirm: "Are you sure?"} %>
+    </div>
+  </nav>
+<% end %>
