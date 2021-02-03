@@ -18,7 +18,7 @@ class ExcelFilesController < ApplicationController
     end
   end
 
-  def updates
+  def update
   end
 
   def destroy
