@@ -8,7 +8,7 @@
             <th scope="col">#</th>
             <th scope="col">Colegio</th>
             <th scope="col">Rbd</th>
-            <th scope="col">Action</th>
+            <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -17,7 +17,9 @@
               <td><%= excel.id %></td>
               <td><%= excel.school %></td>
               <td><%= excel.rbd %></td>
-              <td><%= link_to 'descargar', rails_blob_path(excel.file, disposition: "attachment") %></td>
+              <td><%= link_to 'descargar,', rails_blob_path(excel.file, disposition: "attachment") %>
+                <%= link_to 'eliminar', excel_file_path(excel), method: :delete, data: { confirm: "Are you sure?"} %>
+              </td>
             </tr>
           <% end %>
         </tbody>
