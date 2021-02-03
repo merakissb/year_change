@@ -2,11 +2,13 @@
   <div class="row justify-content-center">
     <div class="col-5">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "p-3 mb-3") do |f| %>
+        <div>
+          <h1 class="text-center mt-3">Log in</h1>
+        </div>
         <div class="form-group row mb-2">
           <%= f.label :email, class: "text-dark" %>
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control rounded" %>
         </div>
-
         <div class="form-group row mb-2">
           <%= f.label :password, class: "text-dark" %>
           <%= f.password_field :password, autocomplete: "current-password", class: "form-control rounded" %>
@@ -18,7 +20,7 @@
           </div>
         <% end %>
         <div class="form-group row justify-content-center">
-          <%= f.submit "Log in" %>
+          <%= f.submit "Log in", class: "btn btn-primary" %>
         </div>
         <div class="text-center">
         <%= render "devise/shared/links"%>
@@ -27,4 +29,3 @@
     </div>
   </div>
 </div>
-

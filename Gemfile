@@ -31,7 +31,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 #
 gem 'devise'
 gem 'active_storage_validations'
-gem "aws-sdk-s3", require: false
+gem "aws-sdk-s3"
 
 
 group :development, :test do
