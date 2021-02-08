@@ -32,6 +32,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
 gem 'active_storage_validations'
 gem "aws-sdk-s3"
+gem "roo", "~> 2.8.0"
 
 
 group :development, :test do
