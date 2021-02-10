@@ -7,7 +7,6 @@ class ExcelFile < ApplicationRecord
   validates :file, attached: true, content_type: { in: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', message: 'is not excel file'}, size: { less_than: 3.megabytes }
 
   before_destroy :delete_bucket_file #callback.
-  before_save :validate_file #callback.
 
   def delete_bucket_file
     s3_client = Aws::S3::Client.new(
@@ -25,6 +24,5 @@ class ExcelFile < ApplicationRecord
   def validate_file
     excel = ExcelValidator.process(file)
   end
-
 
 end
