@@ -35,7 +35,7 @@ class ExcelFilesController < ApplicationController
   private
   
   def excel_file_params
-    params.require(:excel_file).permit(:school, :rbd, :file)
+    params.require(:excel_file).permit(:school, :rbd, :input_file)
   end
 
   def set_excel_file

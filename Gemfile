@@ -33,6 +33,7 @@ gem 'devise'
 gem 'active_storage_validations'
 gem "aws-sdk-s3"
 gem "roo", "~> 2.8.0"
+gem 'caxlsx'
 
 
 group :development, :test do
