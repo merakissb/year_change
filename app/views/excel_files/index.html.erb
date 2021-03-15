@@ -20,6 +20,7 @@
               <td><%= link_to 'descargar,', rails_blob_path(excel.input_file, disposition: "attachment") if excel.input_file.attached? %>
                 <%= link_to 'eliminar', excel_file_path(excel), method: :delete, data: { confirm: "Are you sure?"} %>
                 <%= link_to 'descargar,', rails_blob_path(excel.output_file, disposition: "attachment") if excel.output_file.attached? %>
+                <%= link_to 'Procesar', validate_excel_file_path(excel), data: { confirm: "Are you sure?"} %>
               </td>
             </tr>
           <% end %>

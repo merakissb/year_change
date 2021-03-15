@@ -25,7 +25,6 @@ class ExcelFile < ApplicationRecord
   def validate_file
     ExcelValidator.process(input_file)
     excel = File.open('output.xlsx')
-    debugger
     output_file.attach(io: excel, filename: 'output.xlsx')
     save!
   end

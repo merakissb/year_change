@@ -1,5 +1,5 @@
 class ExcelFilesController < ApplicationController
-  before_action :set_excel_file, only: [:show, :edit, :update, :destroy]
+  before_action :set_excel_file, only: [:show, :edit, :update, :destroy, :validate_file]
 
   def index
     @excel_files = ExcelFile.all
@@ -12,7 +12,7 @@ class ExcelFilesController < ApplicationController
   def create
     @excel_file = current_user.excel_files.new(excel_file_params)
     if @excel_file.save
-      redirect_to @excel_file, notice: "Excel guardado exitosamente."
+      redirect_to excel_files_path, notice: "Excel guardado exitosamente."
     else
       render :new
     end
@@ -23,13 +23,18 @@ class ExcelFilesController < ApplicationController
 
   def destroy
     @excel_file.destroy
-    redirect_to root_path, notice: "Excel eliminado exitosamente."
+    redirect_to excel_files_path, notice: "Excel eliminado exitosamente."
   end
 
   def show
   end
 
   def edit
+  end
+
+  def validate_file
+    @excel_file.validate_file
+    redirect_to excel_files_path, notice: "Excel validado exitosamente."
   end
 
   private
