@@ -46,7 +46,6 @@ module ExcelValidator
   end
 
   private_class_method def self.setup(input_file)
-  debugger
     url = Rails.application.routes.url_helpers.url_for(input_file)
     @input_file = Roo::Spreadsheet.open(url, extension: :xlsx)
     @output_file = Axlsx::Package.new

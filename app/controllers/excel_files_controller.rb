@@ -35,7 +35,6 @@ class ExcelFilesController < ApplicationController
   private
   
   def excel_file_params
-    debugger
     params.require(:excel_file).permit(:school, :rbd, :input_file)
   end
 
