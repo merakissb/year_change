@@ -46,7 +46,9 @@ module ExcelValidator
   end
 
   private_class_method def self.setup(input_file)
-    @input_file = Roo::Spreadsheet.open(input_file.service_url, extension: :xlsx)
+  debugger
+    url = Rails.application.routes.url_helpers.url_for(input_file)
+    @input_file = Roo::Spreadsheet.open(url, extension: :xlsx)
     @output_file = Axlsx::Package.new
     OUTPUT_FILE_SHEETS_NAMES.each do |name|
       @output_file.workbook.add_worksheet(name: name)
