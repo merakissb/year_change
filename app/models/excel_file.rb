@@ -23,6 +23,7 @@ class ExcelFile < ApplicationRecord
   end
 
   def validate_file
+    #FileValidator.process(input_file)
     ExcelValidator.process(input_file)
     excel = File.open('output.xlsx')
     output_file.attach(io: excel, filename: 'output.xlsx')

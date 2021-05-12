@@ -8,19 +8,23 @@
             <th scope="col">#</th>
             <th scope="col">Colegio</th>
             <th scope="col">Rbd</th>
-            <th scope="col">Actions</th>
+            <th scope="col">Input Action</th>
+            <th scope="col">Output Action</th>
           </tr>
         </thead>
         <tbody>
           <% @excel_files.each do |excel| %>
             <tr>
-              <td><%= excel.id %></td>
+              <th scope="row"><%= excel.id %></th>
               <td><%= excel.school %></td>
               <td><%= excel.rbd %></td>
-              <td><%= link_to 'descargar,', rails_blob_path(excel.input_file, disposition: "attachment") if excel.input_file.attached? %>
-                <%= link_to 'eliminar', excel_file_path(excel), method: :delete, data: { confirm: "Are you sure?"} %>
-                <%= link_to 'descargar,', rails_blob_path(excel.output_file, disposition: "attachment") if excel.output_file.attached? %>
-                <%= link_to 'Procesar', validate_excel_file_path(excel), data: { confirm: "Are you sure?"} %>
+              <td>
+                <%= link_to 'descargar', rails_blob_path(excel.input_file, disposition: "attachment"), class:'btn-sm btn btn-primary' if excel.input_file.attached? %>
+                <%= link_to 'eliminar', excel_file_path(excel), method: :delete, data: { confirm: "Are you sure?"}, class:'btn-sm btn btn-danger' %>
+              </td>
+              <td>
+                <%= link_to 'Procesar', validate_excel_file_path(excel), data: { confirm: "Are you sure?"}, class:'btn-sm btn btn-success' %>
+                <%= link_to 'descargar', rails_blob_path(excel.output_file, disposition: "attachment"), class:'btn-sm btn btn-primary' if excel.output_file.attached? %>
               </td>
             </tr>
           <% end %>
